@@ -19,10 +19,13 @@
         <h1>LOGIN</h1>
         <form action="<?= arquivo('modulos/login/logon.php')?>" method="POST">
             <label for="user">Usuário</label>
-            <input type="user" name="user" id="user" placeholder="Digite seu usuário" autocomplete="off">
+            <input type="email" name="email" id="user" placeholder="Digite seu usuário" autocomplete="off" required>
+
             <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" placeholder="Digite a sua senha">
+            <input type="password" name="senha" id="senha" placeholder="Digite a sua senha" required>
+
             <input type="checkbox" id="senha" onclick="mostrarOcultarSenha()">
+
             <div id="fpws">
             <a href="./recuperacao_senha.php" id="Esqueceuasenha">Esqueceu a senha?</a>
             </div>
