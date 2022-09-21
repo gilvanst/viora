@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Ago-2022 às 03:37
+-- Tempo de geração: 21-Set-2022 às 03:28
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -57,20 +57,6 @@ CREATE TABLE `aluno_turma` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `login`
---
-
-CREATE TABLE `login` (
-  `ID` int(5) NOT NULL,
-  `tipo` text NOT NULL,
-  `email` varchar(55) NOT NULL,
-  `senha` varchar(40) NOT NULL,
-  `ID_usuarioFK` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `professor`
 --
 
@@ -110,6 +96,20 @@ CREATE TABLE `turma` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `ID` int(5) NOT NULL,
+  `tipo` text NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `ID_usuarioFK` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Índices para tabelas despejadas
 --
@@ -119,13 +119,6 @@ CREATE TABLE `turma` (
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`ID`);
-
---
--- Índices para tabela `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_usuarioFK` (`ID_usuarioFK`);
 
 --
 -- Índices para tabela `professor`
@@ -140,6 +133,13 @@ ALTER TABLE `turma`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_usuarioFK` (`ID_usuarioFK`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -148,12 +148,6 @@ ALTER TABLE `turma`
 --
 ALTER TABLE `aluno`
   MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `login`
---
-ALTER TABLE `login`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `professor`
@@ -166,6 +160,12 @@ ALTER TABLE `professor`
 --
 ALTER TABLE `turma`
   MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
