@@ -1,0 +1,173 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 27-Ago-2022 às 03:37
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `bdviora`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `aluno`
+--
+
+CREATE TABLE `aluno` (
+  `ID` int(8) NOT NULL,
+  `nome` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `email_sec` varchar(50) NOT NULL,
+  `email_inst` varchar(50) NOT NULL,
+  `telefone` bigint(20) NOT NULL,
+  `telefone_sec` bigint(20) NOT NULL,
+  `responsavel` text NOT NULL,
+  `responsavel_sec` text NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `senha_conf` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `aluno_turma`
+--
+
+CREATE TABLE `aluno_turma` (
+  `ID` int(5) NOT NULL,
+  `ID_aluno` int(5) NOT NULL,
+  `ID_turma` int(5) NOT NULL,
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `login`
+--
+
+CREATE TABLE `login` (
+  `ID` int(5) NOT NULL,
+  `tipo` text NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `ID_usuarioFK` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `professor`
+--
+
+CREATE TABLE `professor` (
+  `ID` int(5) NOT NULL,
+  `nome` text NOT NULL,
+  `telefone` bigint(20) NOT NULL,
+  `telefone_sec` bigint(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `email_sec` varchar(50) NOT NULL,
+  `email_inst` varchar(50) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `senha_conf` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `professor_turma`
+--
+
+CREATE TABLE `professor_turma` (
+  `ID` int(5) NOT NULL,
+  `data` date NOT NULL,
+  `ID_turma` int(5) NOT NULL,
+  `ID_professor` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `ID` int(5) NOT NULL,
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `aluno`
+--
+ALTER TABLE `aluno`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_usuarioFK` (`ID_usuarioFK`);
+
+--
+-- Índices para tabela `professor`
+--
+ALTER TABLE `professor`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `aluno`
+--
+ALTER TABLE `aluno`
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `login`
+--
+ALTER TABLE `login`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `professor`
+--
+ALTER TABLE `professor`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
