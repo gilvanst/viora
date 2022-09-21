@@ -24,6 +24,7 @@
           </ul>
         </li>
       </ul>
+      <a class="btn btn-dark" href="<?= arquivo('modulos/login/sair.php') ?>">Sair</a>
     </div>
   </div>
 </nav>
