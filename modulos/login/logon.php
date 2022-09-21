@@ -23,4 +23,4 @@ $usuario = $preparacao->fetch();
 
 $_SESSION['usuario'] = $usuario['ID'];
 
-header("Location: C:\xampp\htdocs\viora\modulos\pagina\index.php");
+header("Location: ../pagina/index.php ");
