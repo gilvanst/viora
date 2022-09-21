@@ -4,6 +4,8 @@
 
     include_once path('funcoes/conexao.php');
 
+   
+
     function path($file)
     {
         return ROOT_DIR . '/' . $file;

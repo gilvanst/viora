@@ -17,7 +17,7 @@
 <body>
     <div id="Login" >
         <h1>LOGIN</h1>
-        <form action="#">
+        <form action="<?= arquivo('modulos/login/logon.php')?>" method="POST">
             <label for="user">Usuário</label>
             <input type="user" name="user" id="user" placeholder="Digite seu usuário" autocomplete="off">
             <label for="senha">Senha</label>
@@ -28,7 +28,7 @@
             </div>
             <br>
             <div>
-            <a id="btnsubmit" href= "<?= arquivo('modulos/pagina/index.php')?>" >ENTRAR</a>
+            <input id="btnsubmit" type="submit" name="submit" value="Entrar">
             </div>
         </form> 
         
